@@ -1,10 +1,10 @@
 // requires
 const express = require(`express`);
 const app = express();
+const bodyParser = require ('body-parser');
 // uses
-
-// server static files
-app.use(express.static(`server/public`));
+app.use( express.static( 'server/public'));
+app.use( bodyParser.urlencoded( {extended: true}));
 // globals
 const port = 5000;
 let calculations = [];
@@ -17,3 +17,9 @@ app.get(`/calculations`, (req, res)=>{
     console.log(`/calculations GET hit`);
     res.send(calculations);
 }) // end /calculations GET
+
+app.post(`/calculations`, (req, res)=>{
+    console.log(`/calculations POST hit:`, req.body);
+    calculations.push(req.body);
+    res.sendStatus(200);
+})

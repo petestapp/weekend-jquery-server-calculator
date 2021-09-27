@@ -9,8 +9,12 @@ function onReady(){
     $(`#multiplyButton`).on(`click`, setOperationToMultiply);
     $(`#divideButton`).on(`click`, setOperationToDivide);
     $(`#equalsButton`).on(`click`, sendInput);
-    // $(`#clearButton`).on(`click`, clearCalculator);
+    $(`#clearButton`).on(`click`, clearCalculator);
+}
 
+function clearCalculator(){
+    $(`#firstOperandIn`).val(``);
+    $(`#secondOperandIn`).val(``);
 }
 
 function getCalculations(){
@@ -54,5 +58,14 @@ function sendInput(){
         secondOperand: $(`#secondOperandIn`).val()
     }
     console.log(`rawDataObject:`, rawDataObject);
+    $.ajax({
+        method: `POST`,
+        url: `/calculations`,
+        data: rawDataObject
+    }).then(function(response){
+        console.log(`back from POST`, rawDataObject);
+    }).catch(function(err){
+        alert(`error in sendInput`);
+    })
 }
 
