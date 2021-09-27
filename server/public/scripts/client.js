@@ -24,6 +24,11 @@ function getCalculations(){
         url: `/calculations`
     }).then(function(response){
         console.log(`back from GET:`, response);
+        let el = $(`#resultsOut`);
+        el.empty();
+        for(let i=0; i<response.length; i++){
+            el.append(`<li>${response[i].firstOperand} ${response[i].operation} ${response[i].secondOperand} = ${response[i].result}</li>`);
+        }
     }).catch(function(err){
         alert(`error`);
         console.log(err);
@@ -67,5 +72,6 @@ function sendInput(){
     }).catch(function(err){
         alert(`error in sendInput`);
     })
+    getCalculations();
 }
 

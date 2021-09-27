@@ -20,6 +20,25 @@ app.get(`/calculations`, (req, res)=>{
 
 app.post(`/calculations`, (req, res)=>{
     console.log(`/calculations POST hit:`, req.body);
+    calculate(req.body);
     calculations.push(req.body);
     res.sendStatus(200);
 })
+
+function calculate(input){
+    let result;
+    if (input.operation === `+`){
+        result = Number(input.firstOperand) + Number(input.secondOperand);
+    }
+    if (input.operation === `-`){
+        result = Number(input.firstOperand) - Number(input.secondOperand);
+    }
+    if (input.operation === `*`){
+        result = Number(input.firstOperand) * Number(input.secondOperand);
+    }
+    if (input.operation === `/`){
+        result = Number(input.firstOperand) / Number(input.secondOperand);
+    }
+    console.log(`result in calculate():`, result);
+    input.result = result;
+}
