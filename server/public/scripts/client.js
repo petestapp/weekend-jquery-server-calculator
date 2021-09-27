@@ -1,5 +1,15 @@
 $(document).ready(onReady);
 
 function onReady(){
-    console.log(`hey JQ`)
+    getCalculations();
+}
+
+function getCalculations(){
+    console.log(`in getCalculations()`);
+    $.ajax({
+        method: `GET`,
+        url: `/calculations`
+    }).then(function(response){
+        console.log(`back from GET`)
+    })
 }

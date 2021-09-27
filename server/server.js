@@ -13,7 +13,7 @@ app.listen(port, () =>{
     console.log(`server is up on:`, port);
 })
 // routes
-app.get(`/calculator`, (req, res)=>{
-    console.log(`/calculator GET hit`);
+app.get(`/calculations`, (req, res)=>{
+    console.log(`/calculations GET hit`);
     res.send(calculations);
-})
+}) // end /calculations GET
