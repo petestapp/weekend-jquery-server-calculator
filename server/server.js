@@ -14,12 +14,10 @@ app.listen(port, () =>{
 })
 // routes
 app.get(`/calculations`, (req, res)=>{
-    console.log(`/calculations GET hit`);
     res.send(calculations);
 }) // end /calculations GET
 
 app.post(`/calculations`, (req, res)=>{
-    console.log(`/calculations POST hit:`, req.body);
     calculate(req.body);
     calculations.push(req.body);
     res.sendStatus(200);
@@ -39,6 +37,5 @@ function calculate(input){
     if (input.operation === `/`){
         result = Number(input.firstOperand) / Number(input.secondOperand);
     }
-    console.log(`result in calculate():`, result);
     input.result = result;
 }
