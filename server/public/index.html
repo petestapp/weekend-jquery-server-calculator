@@ -11,13 +11,17 @@
 </head>
 <body>
     <h1>Server Calculator Weekend Challenge</h1>
-    <input type="number" name="firstOperand" id="firstOperandIn">
-    <button id="operationButton">+</button>
-    <button id="operationButton">-</button>
-    <button id="operationButton">*</button>
-    <button id="operationButton">/</button>
-    <input type="number" name="secondOperand" id="secondOperandIn">
-    <button id="equalsButton">=</button>
-    <button id="clearButton">c</button>
+    <div id="inputDiv">
+        <input type="number" name="firstOperand" id="firstOperandIn">
+        <div id="operatorButtons">
+            <button id="addButton">+</button>
+            <button id="subtractButton">-</button>
+            <button id="multiplyButton">*</button>
+            <button id="divideButton">/</button>
+        </div>
+        <input type="number" name="secondOperand" id="secondOperandIn">
+        <button id="equalsButton">=</button>
+        <button id="clearButton">c</button>
+    </div>
 </body>
 </html>
